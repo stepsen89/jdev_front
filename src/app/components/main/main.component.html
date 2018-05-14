@@ -1,0 +1,15 @@
+<div class="row padding__main">
+  <div class="col-md-5">
+    <app-user-list
+      (userWasSelected)="selectedU = $event"></app-user-list>
+  </div>
+  <div class="col-md-7">
+    <app-albums-list 
+      *ngIf="selectedU; else infoText"
+      [selectedU]="selectedU"
+      style="padding: 5px"></app-albums-list>
+      <ng-template #infoText>
+        <p> selecte one</p>
+      </ng-template>
+  </div>
+</div>

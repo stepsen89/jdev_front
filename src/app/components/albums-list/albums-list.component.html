@@ -1,0 +1,27 @@
+
+
+<p
+  style="padding-top: 5px">
+    Selected User: </p>
+    <h2> {{selectedU.username}} </h2>
+
+<mat-form-field>
+  <mat-select [(value)]="selected" placeholder="Select album">
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let album of albums" [value]="album" (click)="onSelect()">
+      {{ album.title }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+  
+<p
+  style="padding-top: 5px">
+    Selected Album: </p>
+    <h2> {{selectedAlbum}} </h2>
+
+<div *ngIf="selected" style="padding: 15px;">
+  <div *ngFor="let photo of photos" class="col-xs-6 col-sm-3">
+    <img src={{photo.url}} alt={{photo.title}} class="img-thumbnail img-responsive">
+  </div>
+</div>
+
